@@ -10,8 +10,7 @@ namespace Dz_Proga_4
         {
             Console.OutputEncoding = Encoding.UTF8;
 
-            // Уровень 1: ввод двух предметов пользователем и вывод
-            Console.WriteLine("=== Уровень 1: Введите 2 предмета ===");
+            Console.WriteLine("1 часть");
             Item item1 = ReadItemFromConsole("Введите данные первого предмета");
             Item item2 = ReadItemFromConsole("Введите данные второго предмета");
 
@@ -21,9 +20,8 @@ namespace Dz_Proga_4
             item2.DisplayInfo();
             Console.WriteLine();
 
-            // Уровень 2: PlayerInventory — интерактивное добавление в инвентарь
-            Console.WriteLine("=== Уровень 2: PlayerInventory (интерактивно) ===");
-            var inventory = new PlayerInventory(5, 10.0f); // длина массива 5, вместимость по весу 10
+            Console.WriteLine("2 часть");
+            var inventory = new PlayerInventory(5, 10.0f);
             while (true)
             {
                 if (!HasFreeSlot(inventory))
@@ -43,8 +41,7 @@ namespace Dz_Proga_4
             Console.WriteLine($"Суммарный вес в инвентаре: {inventory.GetTotalWeight()}");
             Console.WriteLine();
 
-            // Уровень 3: Player — игрок подбирает предметы (интерактивно)
-            Console.WriteLine("=== Уровень 3: Player (интерактивно) ===");
+            Console.WriteLine("3 часть");
             var playerInventory = new PlayerInventory(4, 12.0f);
             var player = new Player("Игрок1", playerInventory);
 
@@ -124,7 +121,6 @@ namespace Dz_Proga_4
                     continue;
                 }
 
-                // Поддержим запятую и точку
                 s = s.Trim().Replace(',', '.');
                 if (float.TryParse(s, NumberStyles.Float, CultureInfo.InvariantCulture, out float v) && v >= 0f)
                     return v;
